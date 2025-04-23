@@ -12,6 +12,11 @@ namespace WinFormTest
 {
     public partial class Form1 : Form
     {
+        string operand1 = null;
+        string operand2 = null;
+        string operation = null;
+        bool isSecond = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -27,8 +32,13 @@ namespace WinFormTest
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Clic_reset(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            if (!isSecond)
+                operand1 = null;
+
+            txtDisplay.Text = null;
 
         }
 
@@ -37,48 +47,15 @@ namespace WinFormTest
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button_Click_add(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            if (!isSecond)
+                operand1 += btn.Text;
+            else
+                operand2 += btn.Text;
 
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
+            txtDisplay.Text += btn.Text;
 
         }
     }
